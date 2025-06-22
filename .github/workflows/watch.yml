@@ -14,11 +14,26 @@ jobs:
       WEBHOOK_PHOTOS_MOVIES: ${{ secrets.WEBHOOK_PHOTOS_MOVIES }}
     steps:
       - uses: actions/checkout@v3
+
+      # キャッシュ復元
+      - name: Cache cache folder
+        uses: actions/cache@v3
+        with:
+          path: cache
+          key: cache-folder-${{ runner.os }}-${{ hashFiles('**/*.js') }}
+          restore-keys: |
+            cache-folder-${{ runner.os }}-
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "18"
+
       - name: Install dependencies
         run: npm install node-fetch@2
+
       - name: Run watch script
         run: node watchYuiriFC.js
+
+      # キャッシュ更新はcheckoutの後自動的に行われます
+ｓ
