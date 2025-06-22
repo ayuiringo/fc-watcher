@@ -8,6 +8,10 @@ on:
 jobs:
   check_update:
     runs-on: ubuntu-latest
+    env:
+      WEBHOOK_NEWS: ${{ secrets.WEBHOOK_NEWS }}
+      WEBHOOK_BLOGS: ${{ secrets.WEBHOOK_BLOGS }}
+      WEBHOOK_PHOTOS_MOVIES: ${{ secrets.WEBHOOK_PHOTOS_MOVIES }}
     steps:
       - uses: actions/checkout@v3
       - name: Setup Node.js

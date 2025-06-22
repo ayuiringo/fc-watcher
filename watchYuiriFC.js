@@ -1,10 +1,12 @@
 import fetch from 'node-fetch';
 import fs from 'fs/promises';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const WEBHOOKS = {
-  news: 'https://api.pushcut.io/RTj19Idh6CLyKAkFMA2d5/notifications/fc_news_update',
-  blogs: 'https://api.pushcut.io/RTj19Idh6CLyKAkFMA2d5/notifications/fc_blogs_update',
-  photos_movies: 'https://api.pushcut.io/RTj19Idh6CLyKAkFMA2d5/notifications/fc_photos_movies_update',
+  news: process.env.WEBHOOK_NEWS,
+  blogs: process.env.WEBHOOK_BLOGS,
+  photos_movies: process.env.WEBHOOK_PHOTOS_MOVIES,
 };
 
 const PAGES = {
