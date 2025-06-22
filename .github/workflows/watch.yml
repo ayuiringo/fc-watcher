@@ -3,6 +3,7 @@ name: Watch Murayama FC
 on:
   schedule:
     - cron: "*/5 * * * *" # 5分毎に実行
+  push:
 
 jobs:
   check_update:
