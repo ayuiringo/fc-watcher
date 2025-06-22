@@ -36,4 +36,3 @@ jobs:
         run: node watchYuiriFC.js
 
       # キャッシュ更新はcheckoutの後自動的に行われます
-ｓ
